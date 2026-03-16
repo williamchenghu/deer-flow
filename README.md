@@ -71,7 +71,21 @@ DeerFlow has newly integrated the intelligent search and crawling toolset indepe
    cd deer-flow
    ```
 
-2. **Generate local configuration files**
+2. **Install `uv` (Python package manager)**
+
+   DeerFlow uses [`uv`](https://docs.astral.sh/uv/) to manage Python dependencies and resolve the Python interpreter. Install it before running any `make` commands:
+
+   ```bash
+   # macOS / Linux
+   curl -LsSf https://astral.sh/uv/install.sh | sh
+
+   # Windows (PowerShell)
+   powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+   ```
+
+   After installation, restart your terminal or run `source ~/.bashrc` (or equivalent) so that `uv` is on your `PATH`.
+
+3. **Generate local configuration files**
 
    From the project root directory (`deer-flow/`), run:
 
@@ -81,7 +95,7 @@ DeerFlow has newly integrated the intelligent search and crawling toolset indepe
 
    This command creates local configuration files based on the provided example templates.
 
-3. **Configure your preferred model(s)**
+4. **Configure your preferred model(s)**
 
    Edit `config.yaml` and define at least one model:
 
@@ -105,7 +119,7 @@ DeerFlow has newly integrated the intelligent search and crawling toolset indepe
 
    OpenRouter and similar OpenAI-compatible gateways should be configured with `langchain_openai:ChatOpenAI` plus `base_url`. If you prefer a provider-specific environment variable name, point `api_key` at that variable explicitly (for example `api_key: $OPENROUTER_API_KEY`).
 
-4. **Set API keys for your configured model(s)**
+5. **Set API keys for your configured model(s)**
 
    Choose one of the following methods:
 
