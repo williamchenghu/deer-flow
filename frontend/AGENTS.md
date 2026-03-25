@@ -51,6 +51,12 @@ src/components/
 | New UI primitive | `components/ui/` | Follow Shadcn/UI conventions |
 | Styling/animation | Tailwind classes; MagicUI for effects | GSAP + Motion for advanced |
 
+### Interaction Ownership
+
+- `src/app/workspace/chats/[thread_id]/page.tsx` owns composer busy-state wiring.
+- `src/core/threads/hooks.ts` owns pre-submit upload state and thread submission.
+- `src/hooks/usePoseStream.ts` is a passive store selector; global WebSocket lifecycle stays in `App.tsx`.
+
 ## Data Flow: Chat → Agent → Response
 
 ```
