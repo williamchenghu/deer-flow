@@ -21,13 +21,13 @@ src/components/
 
 ## State Management (No Redux)
 
-| Layer | Pattern | Where |
-|-------|---------|-------|
-| Server state | React Query (TanStack) | `src/core/*/hooks.ts` — useModels, useThreads, useSkills, etc. |
-| UI state | React Context | Scattered contexts: ArtifactsContext, TasksContext, I18nContext |
-| Persistence | localStorage | `src/core/settings/local.ts` — appearance, memory, notification prefs |
-| Streaming | LangGraph SDK | `src/core/threads/hooks.ts` — useThreadStream() (SSE) |
-| API client | Singleton | `src/core/api/api-client.ts` — wraps @langchain/langgraph-sdk |
+| Layer        | Pattern                | Where                                                                 |
+| ------------ | ---------------------- | --------------------------------------------------------------------- |
+| Server state | React Query (TanStack) | `src/core/*/hooks.ts` — useModels, useThreads, useSkills, etc.        |
+| UI state     | React Context          | Scattered contexts: ArtifactsContext, TasksContext, I18nContext       |
+| Persistence  | localStorage           | `src/core/settings/local.ts` — appearance, memory, notification prefs |
+| Streaming    | LangGraph SDK          | `src/core/threads/hooks.ts` — useThreadStream() (SSE)                 |
+| API client   | Singleton              | `src/core/api/api-client.ts` — wraps @langchain/langgraph-sdk         |
 
 ## Routing (App Router)
 
@@ -41,15 +41,15 @@ src/components/
 
 ## Where to Make Changes
 
-| Task | Primary file(s) | Notes |
-|------|-----------------|-------|
-| New AI UI element | `components/ai-elements/` | Compound component + Context pattern |
-| New workspace page | `src/app/workspace/` | App Router; use useThread() for state |
-| New settings page | `workspace/settings/` + `core/settings/local.ts` | Add to localStorage defaults |
-| Server data hook | `src/core/{domain}/hooks.ts` | React Query pattern |
-| API calls | `src/core/api/api-client.ts` | Singleton LangGraph client |
-| New UI primitive | `components/ui/` | Follow Shadcn/UI conventions |
-| Styling/animation | Tailwind classes; MagicUI for effects | GSAP + Motion for advanced |
+| Task               | Primary file(s)                                  | Notes                                 |
+| ------------------ | ------------------------------------------------ | ------------------------------------- |
+| New AI UI element  | `components/ai-elements/`                        | Compound component + Context pattern  |
+| New workspace page | `src/app/workspace/`                             | App Router; use useThread() for state |
+| New settings page  | `workspace/settings/` + `core/settings/local.ts` | Add to localStorage defaults          |
+| Server data hook   | `src/core/{domain}/hooks.ts`                     | React Query pattern                   |
+| API calls          | `src/core/api/api-client.ts`                     | Singleton LangGraph client            |
+| New UI primitive   | `components/ui/`                                 | Follow Shadcn/UI conventions          |
+| Styling/animation  | Tailwind classes; MagicUI for effects            | GSAP + Motion for advanced            |
 
 ### Interaction Ownership
 
